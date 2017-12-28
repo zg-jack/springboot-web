@@ -1,0 +1,70 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.zhuguang.jack</groupId>
+	<artifactId>spring-boot-web</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-boot-web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<!-- 继承父工程 -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<!-- 指定使用工程编码和jdk的版本 -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>1.7</java.version>
+	</properties>
+	<dependencies>
+		<!-- web 启动器 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 排除Tomcat启动器，如果用jetty需要排除，如果要打包(war)部署到服务器需要排除内置Tomcat <exclusions> 
+				<exclusion> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-tomcat</artifactId> 
+				</exclusion> </exclusions> -->
+		</dependency>
+		<!-- 这个两个jar包是springboot支持jsp的jar -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<!-- 引入freeMarker的依赖包. -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
+		</dependency>
+
+		<!-- 把mybatis的启动器引入  -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<finalName>spring-boot-web</finalName>
+	</build>
+</project>
