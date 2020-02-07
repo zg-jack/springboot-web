@@ -238,24 +238,24 @@
 	<select id="qryArea" parameterType="java.util.Map" resultMap="AreaResultMap">
 		
 		select * from consult_configarea
-		<!--<trim prefix="WHERE" prefixOverrides="AND|OR">
-				<if test="areaCode != null and areaCode != ''" >
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+			<if test="areaCode != null and areaCode != ''" >
 					and areaCode = #{areaCode,jdbcType=VARCHAR}
-				</if>
-				<if test="areaName != null and areaName != ''" >
-					and areaName = #{areaName,jdbcType=VARCHAR}
-				</if>
-				<if test="state != null and state != ''" >
-					and state = #{state}
-				</if>
-			</trim>
-			order by areaCode desc  
-			<if test="beginPage != null and beginPage != ''">
-			   LIMIT #{beginPage}
 			</if>
-			<if test="pageSize != null and pageSize != ''" >
+			<if test="areaName != null and areaName != ''" >
+					and areaName = #{areaName,jdbcType=VARCHAR}
+			</if>
+			<if test="state != null and state != ''" >
+					and state = #{state}
+			</if>
+		</trim>
+			order by areaCode desc  
+		<if test="beginPage != null and beginPage != ''">
+			   LIMIT #{beginPage}
+		</if>
+		<if test="pageSize != null and pageSize != ''" >
 			   ,#{pageSize}
-			</if>-->
+		</if>
 	</select>
 	
 	<insert id="saveArea" parameterType="com.zhuguang.jack.bean.ConsultConfigArea">

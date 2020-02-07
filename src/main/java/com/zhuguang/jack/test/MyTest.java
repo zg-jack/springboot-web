@@ -1,27 +1,36 @@
 package com.zhuguang.jack.test;
 
+import com.zhuguang.jack.bean.ConsultConfigArea;
+import com.zhuguang.jack.service.AreaService;
+import com.zhuguang.jack.start.SpringbootTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.zhuguang.jack.service.CommonService;
-import com.zhuguang.jack.start.SpringBootSampleApplication;
+import java.util.HashMap;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-//这个注解必须告诉junit，springboot的启动类是哪一个
-@SpringApplicationConfiguration(classes = SpringBootSampleApplication.class)
-//这个是junit需要模拟一个ServletContext
+@SpringBootTest(classes = SpringbootTest.class)
 @WebAppConfiguration
 public class MyTest {
     
+    private static final Logger logger = LoggerFactory.getLogger(MyTest.class);
+    
     @Autowired
-    CommonService commonService;
+    AreaService areaService;
     
     @Test
     public void test1() {
-        System.out.println(commonService.queryContent());
+        List<ConsultConfigArea> areas = areaService.qryArea(new HashMap());
+        for (ConsultConfigArea area : areas) {
+            logger.info(area.getAreaCode() + "   " + area.getAreaName() + "   "
+                    + area.getState());
+        }
     }
 }

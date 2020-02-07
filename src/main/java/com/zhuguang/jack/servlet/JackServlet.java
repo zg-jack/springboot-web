@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class JackServlet
  */
+//@WebServlet(urlPatterns = "/jack/*")
 public class JackServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     
@@ -26,7 +27,7 @@ public class JackServlet extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("----------------------------------------");
+        System.out.println("-----------------doGet-----------------------");
     }
     
     /**
@@ -34,7 +35,7 @@ public class JackServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
+        System.out.println("------------------doPost----------------------");
     }
     
 }
